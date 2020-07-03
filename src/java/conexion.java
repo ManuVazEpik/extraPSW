@@ -84,7 +84,7 @@ public class conexion {
     return verificar;
     }
     
-    public boolean modificarNombre(String nombre, String nombreA , int id) throws ClassNotFoundException{
+    public boolean modificarNombre(String nombre, String nombreA , int id) throws ClassNotFoundException, SQLException{
     
         boolean verificar = false;
         Connection con = conexion.getConexion();
@@ -105,6 +105,9 @@ public class conexion {
             
             verificar = true;
             
+            con.close();
+            ps.close();
+            
         } catch (Exception e) {
             
             System.out.println(e.getMessage());
@@ -112,13 +115,16 @@ public class conexion {
             System.out.println(e.getStackTrace());
             verificar = false;
             
+            con.close();
+            ps.close();
+            
         }
         
         
     return verificar;
     }
     
-    public boolean modificarCorreo(String correo, String correoA , int id) throws ClassNotFoundException{
+    public boolean modificarCorreo(String correo, String correoA , int id) throws ClassNotFoundException, SQLException{
     
         boolean verificar = false;
         Connection con = conexion.getConexion();
@@ -138,6 +144,8 @@ public class conexion {
             u.setCorreo(correo);
             
             verificar = true;
+            con.close();
+            ps.close();
             
         } catch (Exception e) {
             
@@ -145,6 +153,8 @@ public class conexion {
             System.out.println("Fallo en la carga de datos");
             System.out.println(e.getStackTrace());
             verificar = false;
+            con.close();
+            ps.close();
             
         }
         
@@ -153,7 +163,7 @@ public class conexion {
     
 }
     
-    public boolean modificarPassword(String pass, String passA , int id) throws ClassNotFoundException{
+    public boolean modificarPassword(String pass, String passA , int id) throws ClassNotFoundException, SQLException{
     
         boolean verificar = false;
         Connection con = conexion.getConexion();
@@ -173,6 +183,8 @@ public class conexion {
             u.setPassword(pass);
             
             verificar = true;
+            con.close();
+            ps.close();
             
         } catch (Exception e) {
             
@@ -180,6 +192,8 @@ public class conexion {
             System.out.println("Fallo en la carga de datos");
             System.out.println(e.getStackTrace());
             verificar = false;
+            con.close();
+            ps.close();
             
         }
         
@@ -187,4 +201,50 @@ public class conexion {
     return verificar;
    
     }
+    
+    public boolean registrarUsuario(String nombre, String correo, String pass) throws ClassNotFoundException, SQLException{
+    
+        boolean ver = false;
+        
+        try {
+            
+        Connection con = conexion.getConexion();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql = "insert into usuario(user_email,user_pass,user_name)values(?,?,?)";
+        ps = con.prepareStatement(sql);
+        ps.setString(1, correo);
+        ps.setString(2, pass);
+        ps.setString(3, nombre);
+        rs = ps.executeQuery();
+        ver = true;
+        con.close();
+        ps.close();
+        rs.close();
+            
+        } catch (Exception e) {
+            
+            ver = false;
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+        
+            
+        }
+        
+    return ver;
+    }
+    
+    public boolean cerrarSesion(usuario u){
+    
+        boolean ver =false;
+        u.setCorreo(null);
+        u.setId(0);
+        u.setNombre(null);
+        u.setPermiso(0);
+        ver = true;
+        
+        return ver;
+    
+    }
+    
 }

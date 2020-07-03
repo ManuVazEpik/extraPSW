@@ -12,6 +12,10 @@
         <servlet-name>verEmpleados</servlet-name>
         <servlet-class>verEmpleados</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>cerrarSesion</servlet-name>
+        <servlet-class>cerrarSesion</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>verificarUsuario</servlet-name>
         <url-pattern>/verificarUsuario</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>verEmpleados</servlet-name>
         <url-pattern>/verEmpleados</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cerrarSesion</servlet-name>
+        <url-pattern>/cerrarSesion</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

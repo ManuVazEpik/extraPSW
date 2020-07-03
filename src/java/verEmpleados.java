@@ -38,7 +38,6 @@ public class verEmpleados extends HttpServlet {
             PreparedStatement ps = null;
             ResultSet rs = null;
             String sql = "select * from usuario where user_priv = 1";
-            String sql2 = "select * from usuario where user_priv = 2";
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");
@@ -73,6 +72,7 @@ public class verEmpleados extends HttpServlet {
             con = conexion.getConexion();
             ps = null;
             rs = null;
+            sql = null;
             
             out.println("<table>" + "<tr><th>Asistentes</th></tr>"
                     + "<tr>\n" +
@@ -81,7 +81,8 @@ public class verEmpleados extends HttpServlet {
 "                   <th>Correo</th>\n" +
 "                       </tr>");
             
-            ps = con.prepareStatement(sql2);
+            sql = "select * from usuario where user_priv = 2";
+            ps = con.prepareStatement(sql);
             rs = ps.executeQuery();
             
             while(rs.next()){
@@ -94,6 +95,7 @@ public class verEmpleados extends HttpServlet {
                 out.println("</tr>");
             
             }
+            
             out.println("</table>");
             
             out.println("<a href='gerente.jsp'>Volver</a>");

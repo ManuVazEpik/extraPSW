@@ -62,9 +62,6 @@
                 <p>Desde los cortes de cabello a la moda hasta nuestros servicios especiales, sin duda, una de tus mejores opciones para lucir
                 espectácular en cualquier evento.</p>
             </div>
-            <div>
-                Inicia sesion para comenzar a hacer reservaciones en este preciso instante.
-            </div>
         </section>
     </body>
 </html>
