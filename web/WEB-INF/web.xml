@@ -16,6 +16,10 @@
         <servlet-name>cerrarSesion</servlet-name>
         <servlet-class>cerrarSesion</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>registrarUsuario</servlet-name>
+        <servlet-class>registrarUsuario</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>verificarUsuario</servlet-name>
         <url-pattern>/verificarUsuario</url-pattern>
@@ -31,6 +35,10 @@
     <servlet-mapping>
         <servlet-name>cerrarSesion</servlet-name>
         <url-pattern>/cerrarSesion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registrarUsuario</servlet-name>
+        <url-pattern>/registrarUsuario</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

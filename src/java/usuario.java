@@ -18,6 +18,14 @@ public class usuario {
 
     public usuario() {
     }
+
+    public usuario(String nombre, String password, String correo, int id, int permiso) {
+        this.nombre = nombre;
+        this.password = password;
+        this.correo = correo;
+        this.id = id;
+        this.permiso = permiso;
+    }
     
     
 

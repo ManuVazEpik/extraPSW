@@ -204,23 +204,25 @@ public class conexion {
     
     public boolean registrarUsuario(String nombre, String correo, String pass) throws ClassNotFoundException, SQLException{
     
+        System.out.println("Datos recibidos");
         boolean ver = false;
         
         try {
             
         Connection con = conexion.getConexion();
         PreparedStatement ps = null;
-        ResultSet rs = null;
-        String sql = "insert into usuario(user_email,user_pass,user_name)values(?,?,?)";
+        int rs = 0;
+        String sql = "insert into usuario(user_email,user_pass,user_name,user_priv)values(?,?,?,?)";
         ps = con.prepareStatement(sql);
         ps.setString(1, correo);
         ps.setString(2, pass);
         ps.setString(3, nombre);
-        rs = ps.executeQuery();
+        ps.setInt(4, 3);
+        rs = ps.executeUpdate();
+            System.out.println("Carga de datos terminada");
         ver = true;
         con.close();
         ps.close();
-        rs.close();
             
         } catch (Exception e) {
             
@@ -245,6 +247,39 @@ public class conexion {
         
         return ver;
     
+    }
+    
+    public boolean ascenderUsuario(String usuario) throws ClassNotFoundException, SQLException{
+        
+        boolean ver = false;
+        Connection con = conexion.getConexion();
+        PreparedStatement ps = null;
+        int rs = 0;
+        
+        try {
+            
+            String sql = "update usuario set user_priv = 3 where user_name = ?";
+            ps = con.prepareStatement(sql);
+            rs = ps.executeUpdate();
+            
+            if (rs == 1) {
+                
+                ver = true;
+                con.close();
+                ps.close();
+                
+            }
+            
+        } catch (Exception e) {
+            
+            System.out.println(e.getMessage());
+            System.out.println(e.getStackTrace());
+            ver = false;
+            con.close();
+            ps.close();
+            
+        }
+     return ver;   
     }
     
 }

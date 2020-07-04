@@ -6,19 +6,19 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
  * @author manua
  */
-public class modificarNombre extends HttpServlet {
+public class registrarUsuario extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -35,23 +35,28 @@ public class modificarNombre extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
-            usuario u = new usuario();
+            String nombre = request.getParameter("usuarior");
+            System.out.println(nombre);
+            String pass = request.getParameter("passr");
+            System.out.println(pass);
+            String correo = request.getParameter("correo");
+            System.out.println(correo);
+            
             conexion con = new conexion();
             
-            String nombre = request.getParameter("nombre");
-            String nombreA = u.getNombre();
-            int id = u.getId();
-            
-            boolean check = con.modificarNombre(nombre, nombreA, id);
+            boolean check = con.registrarUsuario(nombre, correo, pass);
+            System.out.println("Datos cargados a la funcion");
             
             if (check) {
                 
-                response.sendRedirect("cuentaGerente.jsp");
                 
-            }else{
+                response.sendRedirect("inicioSesion.jsp");
+                
+            }
+            else{
             
                 response.sendRedirect("error.jsp");
-            
+                
             }
             
         }
@@ -70,13 +75,11 @@ public class modificarNombre extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            try {
-                processRequest(request, response);
-            } catch (SQLException ex) {
-                Logger.getLogger(modificarNombre.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(modificarNombre.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(registrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(registrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -92,13 +95,11 @@ public class modificarNombre extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            try {
-                processRequest(request, response);
-            } catch (SQLException ex) {
-                Logger.getLogger(modificarNombre.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(modificarNombre.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(registrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(registrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

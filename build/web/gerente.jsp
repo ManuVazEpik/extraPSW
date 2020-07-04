@@ -49,7 +49,7 @@
                         <li>Pagos</li>
                     </ul>
                 </li>
-                <li><a href="index.html">Cerrar sesion</a></li>
+                <li><a href="cerrarSesion">Cerrar sesion</a></li>
             </ul>
         </nav>
         <div class="presentacion"><h2>Bienvenido <%=usuario%>.</h2></div>
@@ -61,7 +61,8 @@
             </div>
             <div>Conoce nustra gran gama de servicios a los que podrás acceder con un simple clic.
                 <br>
-                <p>Desde los cortes de cabello a la moda hasta nuestros servicios especiales, sin duda, una de tus mejores opciones para lucir
+                <p>Desde los cortes de cabello a la moda hasta nuestros servicios especiales, sin duda, 
+                    una de tus mejores opciones para lucir
                 espectácular en cualquier evento.</p>
             </div>
             <div>

@@ -1,23 +1,22 @@
 <%-- 
-    Document   : admin
-    Created on : 30/06/2020, 11:33:03 PM
+    Document   : index
+    Created on : 4/07/2020, 01:27:33 AM
     Author     : manua
 --%>
-
 
 <%@page contentType="text/html" language="java" session="true" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Gerente La Bella</title>
+        <title>Estetica La Bella</title>
     </head>
     <body>
         <% 
            String usuario ="";
            HttpSession sesionIni = request.getSession(); 
             
-           if (sesionIni.getAttribute("usuario") == null || (Integer)sesionIni.getAttribute("permiso") != 0) {
+           if (sesionIni.getAttribute("usuario") == null || (Integer)sesionIni.getAttribute("permiso") != 3) {
                     
                 
         %>
@@ -42,11 +41,10 @@
                         <li><a href="peinados.html">Peinados</a></li>
                     </ul>
                 </li>
-                <li>Gerente
+                <li>Usuario
                     <ul>
-                        <li><a href="verEmpleados">Ver trabajadores</a></li>
-                        <li>Cuenta</li>
-                        <li>Pagos</li>
+                        <li><a>Cuenta</a></li>
+                        <li><a href="cita.jsp">Agendar Cita</a></li>
                     </ul>
                 </li>
                 <li><a href="cerrarSesion">Cerrar sesion</a></li>
@@ -61,8 +59,8 @@
             </div>
             <div>Conoce nustra gran gama de servicios a los que podrás acceder con un simple clic.
                 <br>
-                <p>Desde los cortes de cabello a la moda hasta nuestros servicios especiales, sin duda, 
-                    una de tus mejores opciones para lucir
+                <p>Desde los cortes de cabello a la moda hasta nuestros servicios especiales, sin duda, una de 
+                    tus mejores opciones para lucir
                 espectácular en cualquier evento.</p>
             </div>
             <div>
@@ -71,4 +69,3 @@
         </section>
     </body>
 </html>
-

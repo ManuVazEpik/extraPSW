@@ -82,7 +82,7 @@ public class verificarUsuario extends HttpServlet {
                     
                     case 3:
                         System.out.println("Ni de pedo vas a ser admi");
-                        response.sendRedirect("indexUsu.jsp");
+                        response.sendRedirect("index.jsp");
                         break;
                         
                     default:
