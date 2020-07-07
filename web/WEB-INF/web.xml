@@ -20,6 +20,10 @@
         <servlet-name>registrarUsuario</servlet-name>
         <servlet-class>registrarUsuario</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>servicios</servlet-name>
+        <servlet-class>servicios</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>verificarUsuario</servlet-name>
         <url-pattern>/verificarUsuario</url-pattern>
@@ -39,6 +43,10 @@
     <servlet-mapping>
         <servlet-name>registrarUsuario</servlet-name>
         <url-pattern>/registrarUsuario</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>servicios</servlet-name>
+        <url-pattern>/servicios</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
