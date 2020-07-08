@@ -3,7 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.util.*;
+import java.sql.*;
+
 /**
  *
  * @author manua
@@ -25,12 +26,28 @@ public class servicio {
         this.precio = precio;
     }
 
-    public boolean faltaMedia(long fecha){
+    public boolean faltaMedia(long fecha) throws ClassNotFoundException{
         
-        Calendar calen = null;
+        Time calen = null;
         boolean ver = false;
-        Date fechaA = calen.getTime();
+        int dia = calen.getDate();
+        int mes = calen.getMonth();
+        int año = calen.getYear()+1900;
+        Connection con = conexion.getConexion();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        String sql ="select cita_fecha,cita_hora from cita where cita_fecha = ?";
+        //String sql2 = "select ";
         
+        try {
+            
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, 0);
+            
+        } catch (Exception e) {
+        }
+        
+        //System.out.println(fechaA);
         
         return ver;
     }
