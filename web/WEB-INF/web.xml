@@ -28,6 +28,10 @@
         <servlet-name>verCitas</servlet-name>
         <servlet-class>verCitas</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>registrarMetodoPago</servlet-name>
+        <servlet-class>registrarMetodoPago</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>verificarUsuario</servlet-name>
         <url-pattern>/verificarUsuario</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>verCitas</servlet-name>
         <url-pattern>/verCitas</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registrarMetodoPago</servlet-name>
+        <url-pattern>/registrarMetodoPago</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

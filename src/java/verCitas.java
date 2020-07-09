@@ -50,6 +50,7 @@ public class verCitas extends HttpServlet {
             out.println("<table>"
                     + "<tr>ID:</tr>"
                     + "<tr>Nombre del solicitante:</tr>"
+                    + ""
                     + "</table>");
             out.println("</body>");
             out.println("</html>");

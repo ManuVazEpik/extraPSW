@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import java.sql.*;
+import java.util.Vector;
 
 /**
  *
@@ -13,13 +14,13 @@ public class servicio {
     
     private int id;
     private String nombre;
-    private Date fecha;
+    private Time fecha;
     private double precio;
 
     public servicio() {
     }
 
-    public servicio(int id, String nombre, Date fecha, double precio) {
+    public servicio(int id, String nombre, Time fecha, double precio) {
         this.id = id;
         this.nombre = nombre;
         this.fecha = fecha;
@@ -30,7 +31,7 @@ public class servicio {
         
         Time calen = null;
         boolean ver = false;
-        int dia = calen.getDate();
+        long dia = calen.getTime();
         int mes = calen.getMonth();
         int año = calen.getYear()+1900;
         Connection con = conexion.getConexion();
@@ -52,6 +53,45 @@ public class servicio {
         return ver;
     }
     
+    public static Vector<servicio> listaServicios() throws ClassNotFoundException, SQLException{
+    
+        Connection con = conexion.getConexion();
+        PreparedStatement ps = null;
+        ResultSet rs  = null;
+        Vector<servicio> listaS = new Vector<servicio>();
+        
+        try {
+            
+            String sql = "Select * from servicios";
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+            
+                servicio ser = new servicio();
+                ser.setId(rs.getInt("id_ser"));
+                ser.setNombre(rs.getString("servicio"));
+                ser.setFecha(rs.getTime("duracion"));
+                ser.setPrecio(rs.getDouble("costo"));
+                listaS.add(ser);
+                con.close();
+                ps.close();
+                rs.close();
+                
+            }
+            
+        } catch (Exception e) {
+            
+            System.out.println("Fallo en la carga de datos");
+            con.close();
+            rs.close();
+            ps.close();
+            
+        }
+    
+        return listaS;
+    }
+    
     public int getId() {
         return id;
     }
@@ -68,11 +108,11 @@ public class servicio {
         this.nombre = nombre;
     }
 
-    public Date getFecha() {
+    public Time getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(Time fecha) {
         this.fecha = fecha;
     }
 

@@ -33,14 +33,7 @@
         <nav class="navegador">
             <ul>
                 <li>Inicio</li>
-                <li>Servicios
-                    <ul>
-                        <li><a href="peluqueria.html">Peluqueria</a></li>
-                        <li><a href="unas.html">Uñas y Pies</a></li>
-                        <li><a href="maquillaje.html">Maquillaje</a></li>
-                        <li><a href="peinados.html">Peinados</a></li>
-                    </ul>
-                </li>
+                <li><a href="servicios.java">Servicios</a></li>
                 <li>Usuario
                     <ul>
                         <li><a>Cuenta</a></li>

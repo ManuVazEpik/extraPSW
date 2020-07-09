@@ -4,3 +4,21 @@
     font-family: Verdana;
 
 }
+
+.derecha{
+
+    align-self: initial;
+    box-align: right;
+    float: right;
+    align-items: center;
+
+}
+
+.izquierda{
+
+    align-self: start;
+    box-align: left;
+    float: left;
+    align-items: center;
+
+}

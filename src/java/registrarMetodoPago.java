@@ -18,7 +18,7 @@ import java.util.logging.Logger;
  *
  * @author manua
  */
-public class servicios extends HttpServlet {
+public class registrarMetodoPago extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,46 +30,36 @@ public class servicios extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
+            throws ServletException, IOException, ClassNotFoundException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            Connection con = conexion.getConexion();
-            String sql = "select * from servicios";
-            PreparedStatement ps = null;
-            ResultSet rs = null;
             
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Ver Servicios</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<table border='1'>");
-            out.println("<tr><th>Servicios</th></tr>"
-                    + "<tr>ID:</tr>"
-                    + "<tr>Nombre del servicio:</tr>"
-                    + "<tr>Duracion:</tr>"
-                    + "<tr>Costo:</tr>");
-            ps = con.prepareStatement(sql);
-            rs = ps.executeQuery();
+            int tarjeta = Integer.parseInt(request.getParameter("tarjeta"));
+            int codigo = Integer.parseInt(request.getParameter("codigo"));
+            long vencimiento = Date.parse(request.getParameter("vencimiento"));
+            String propietario = request.getParameter("propietario");
+            metodoPago mp = new metodoPago();
             
-            while(rs.next()){
-            
-                out.println("<tr>");
-                out.println("<td>" + rs.getInt("id_ser") +"</td>");
-                out.println("<td>" + rs.getString("servicio") +"</td>");
-                out.println("<td>" + rs.getTime("duracion") +"</td>");
-                out.println("<td>" + rs.getDouble("costo") +"</td>");
+            try {
                 
-                out.println("</tr>");
-            
+                if (tarjeta == 0 || codigo == 0 || vencimiento == 0 || propietario.isEmpty()) {
+                    
+                    response.sendRedirect("error.jsp");
+                    
+                }
+                
+               boolean check = mp.registrarTarjeta(tarjeta, codigo, vencimiento, propietario);
+               
+                if (check) {
+                    
+                    response.sendRedirect("index.jsp");
+                    
+                }
+                
+            } catch (Exception e) {
             }
             
-            out.println("</table>");
-            out.println("<input type='button' value='prueba' onclick='prueba.jsp'>");
-            out.println("</body>");
-            out.println("</html>");
         }
     }
 
@@ -86,13 +76,9 @@ public class servicios extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            try {
-                processRequest(request, response);
-            } catch (SQLException ex) {
-                Logger.getLogger(servicios.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(servicios.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(registrarMetodoPago.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -108,13 +94,9 @@ public class servicios extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            try {
-                processRequest(request, response);
-            } catch (SQLException ex) {
-                Logger.getLogger(servicios.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            processRequest(request, response);
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(servicios.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(registrarMetodoPago.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

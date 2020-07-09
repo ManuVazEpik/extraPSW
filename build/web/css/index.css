@@ -12,12 +12,21 @@ body{
 
 }
 
+img{
+
+    size: 500px;
+    height: 250px;
+    width: 250px;
+
+}
+
 .principal{
 
     padding: 5%;
     size: 50%;
     align-self: center;
     align-items: center;
+    background-color: white;
 
 }
 
@@ -26,6 +35,6 @@ body{
     padding: 10px;
     size: 70%;
     align-self: start;
-    
+    background-color: salmon;
 
 }
