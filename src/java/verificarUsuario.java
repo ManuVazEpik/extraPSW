@@ -42,9 +42,9 @@ public class verificarUsuario extends HttpServlet {
             
             conexion con = new conexion();
             usuario u = new usuario();
-            boolean ver = con.verificarUsuario(usuario, pass);
+            u = con.verificarUsuario(usuario, pass);
             
-            if (ver) {
+            if (u != null) {
                 
                 HttpSession sesion = request.getSession(true);
                 sesion.setAttribute("usuario",u);

@@ -41,3 +41,12 @@ function validarPalabras(e){
     return regex.test(tec);
 
 }
+
+function validarCorreo(){
+
+    var teclado = (document.all)? e.keyCode : e.which;
+    var tec = String.fromCharCode(teclado);
+
+    var regex = /^/ ;
+
+}

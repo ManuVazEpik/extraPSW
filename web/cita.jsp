@@ -32,21 +32,8 @@
                 Hora de la cita:
                 <input type="time" min="09:00:00" max="18:00:00">
             </div>
-            <select name="servicios">
-                <%
-                
-        Vector<servicio> listaS  = servicio.listaServicios();
-        if (listaS != null && listaS.isEmpty()) {
-                
-            for( servicio servicioT: listaS ){
             
-                %>
-                <option>
-                    <%= servicioT.getNombre() %>
-                </option>
-                <% } 
-            } %>
-            </select>
+              
             <input type="submit" value="Agendar Cita">
         </form>
     </body>

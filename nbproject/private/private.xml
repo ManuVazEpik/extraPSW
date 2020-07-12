@@ -4,18 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/metodoPago.java</file>
+            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/usuario.java</file>
             <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/conexion.java</file>
-            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/verCitas.java</file>
-            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/verificarUsuario.java</file>
-            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/web/Estilista.jsp</file>
             <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/servicios.java</file>
-            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/registrarMetodoPago.java</file>
-            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/servicio.java</file>
-            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/web/metodoPago.jsp</file>
-            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/web/prueba.jsp</file>
+            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/modificarNombre.java</file>
             <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/web/gerente.jsp</file>
-            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/web/cita.jsp</file>
-            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/web/index.jsp</file>
+            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/cerrarSesion.java</file>
         </group>
     </open-files>
 </project-private>

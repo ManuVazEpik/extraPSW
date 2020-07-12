@@ -37,13 +37,13 @@ public class conexion {
         return con;
     }
     
-    public boolean verificarUsuario(String usuario, String password) throws ClassNotFoundException, SQLException{
+    public usuario verificarUsuario(String usuario, String password) throws ClassNotFoundException, SQLException{
     
-        boolean verificar = false;
         Connection con = conexion.getConexion();
         PreparedStatement ps = null;
         ResultSet rs = null;
         String sql = "SELECT * FROM usuario WHERE(user_name= ? AND user_pass = ?)";
+        usuario u = new usuario();
         
         try {
             
@@ -52,7 +52,6 @@ public class conexion {
             ps.setString(2, password);
             rs = ps.executeQuery();
             System.out.println("Conexion a la tabla exitosa");
-            usuario u = new usuario();
             
             while(rs.next()){
             
@@ -67,7 +66,6 @@ public class conexion {
                 u.setPermiso(rs.getInt("user_priv"));
                 System.out.println(u.getPermiso());
                 System.out.println("Llenado de datos finalizado");
-                verificar = true;
             }
             con.close();
             ps.close();
@@ -75,13 +73,11 @@ public class conexion {
         } catch (Exception e) {
             System.out.println(e.getMessage()+ "\n");
             System.out.println("Conexion a la tabla fallida");
-            verificar = false;
             con.close();
             ps.close();
             rs.close();
         }
-        System.out.println(verificar);
-    return verificar;
+    return u;
     }
     
     public boolean modificarNombre(String nombre, String nombreA , int id) throws ClassNotFoundException, SQLException{
@@ -219,7 +215,7 @@ public class conexion {
         ps.setString(3, nombre);
         ps.setInt(4, 3);
         rs = ps.executeUpdate();
-            System.out.println("Carga de datos terminada");
+        System.out.println("Carga de datos terminada");
         ver = true;
         con.close();
         ps.close();
