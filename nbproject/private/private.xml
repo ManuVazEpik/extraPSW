@@ -3,13 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/metodoPago.java</file>
             <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/usuario.java</file>
             <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/conexion.java</file>
+            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/verificarUsuario.java</file>
+            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/web/inicioSesion.jsp</file>
+            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/web/js/validaciones.js</file>
             <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/servicios.java</file>
-            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/modificarNombre.java</file>
+            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/servicio.java</file>
+            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/registrarUsuario.java</file>
+            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/web/datos.jsp</file>
             <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/web/gerente.jsp</file>
-            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/src/java/cerrarSesion.java</file>
+            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/web/cita.jsp</file>
+            <file>file:/C:/Users/manua/Documents/GitHub/extraPSW/web/index.jsp</file>
         </group>
     </open-files>
 </project-private>

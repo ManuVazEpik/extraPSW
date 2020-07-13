@@ -16,9 +16,9 @@ public class conexion {
     public static Connection getConexion() throws ClassNotFoundException{
     
             Connection con = null;
-            String url = "jdbc:mysql://localhost:3306/estetica";
-            String user = "root";
-            String pass = "n0m3l0";
+            String url = "jdbc:mysql://us-cdbr-east-02.cleardb.com:3306/heroku_009fed8579207bb";
+            String user = "bdc156afe78442";
+            String pass = "df3c4a88";
             
             try {
 
