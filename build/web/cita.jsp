@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.text.DateFormat"%>
-<%@page contentType="text/html" import="java.util.*;" language="java" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" import="java.sql.*;" language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,14 +15,33 @@
     
     <%
     
-        DateFormat calen = DateFormat.getDateInstance();
-        Date fechaActual = new Date();
+        
+        try{
+        
+        
+        String tiempoA = "select curtime()";
+        String fechaA = "select curdate()";
+        conexion con = new conexion();
+        Connection cn = con.getConexion();
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        ps = cn.prepareStatement(tiempoA);
+        rs = ps.executeQuery();
+        
+        while(rs.next()){
+        
+            
+            
+        }
+            
+        }catch(Exception e){}
     
     %>
     
     <body>
         <div>Agenda una cita ahora mismo.</div>
-        <form method="post" name="form1" action="agendarCita">
+        <form method="post" name="form" action="agendarCita">
             
             <div class="campo">
                 Fecha para la cita:
