@@ -42,11 +42,22 @@ function validarPalabras(e){
 
 }
 
-function validarCorreo(){
+function validarCorreo(e){
 
     var teclado = (document.all)? e.keyCode : e.which;
     var tec = String.fromCharCode(teclado);
 
     var regex = /^/ ;
 
+}
+
+function validarPass(e){
+    
+    var teclado = (document.all)? e.keyCode : e.which;
+    var tec = String.fromCharCode(teclado);
+    
+    var regex = /^[A-Za-z\s][0-9\d]+$/;
+    
+    return regex.test(tec);
+    
 }

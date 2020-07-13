@@ -5,7 +5,7 @@
 --%>
 
 <%@page import="java.text.DateFormat"%>
-<%@page contentType="text/html" import="java.sql.*;" language="java" pageEncoding="UTF-8"%>
+<%@page contentType="text/html" import="java.sql.*;" extends="conexion" language="java" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>

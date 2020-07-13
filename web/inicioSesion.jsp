@@ -19,7 +19,7 @@
                 <h1>Si ya tienes una cuenta registrada, inicia sesion.</h1>
                 <br>
                 Usuario:
-                <div class="campo"><input type="text" name="usuario" required="required"></div>
+                <div class="campo"><input type="text" name="usuario" required="required" onkeypress="return validarPalabras(event)"></div>
                 <br>
                 Contraseña:
                 <div class="campo"><input type="password" name="pass" required="required"></div>
@@ -38,7 +38,7 @@
             <div class="campo"><input type="text" name="correo" required="required" ></div>
             <br>
             Contraseña:
-            <div class="campo"><input type="password" name="passr" required="required"></div>
+            <div class="campo"><input type="password" name="passr" required="required" onkeypress="return validarPass(event)"></div>
             <br>
             <input type="submit" value="Registrar" class="boton">
             </div>
