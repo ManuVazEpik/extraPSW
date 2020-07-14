@@ -53,7 +53,19 @@ public class conexion {
             rs = ps.executeQuery();
             System.out.println("Conexion a la tabla exitosa");
             
-            while(rs.next()){
+            if (rs.equals(null)) {
+                
+                System.out.println("Error, campos vacios");
+                
+                con.close();
+                ps.close();
+                rs.close();
+                
+            }
+            
+            else{
+            
+                while(rs.next()){
             
                 u.setId(rs.getInt("user_id"));
                 System.out.println(u.getId());
@@ -70,6 +82,8 @@ public class conexion {
             con.close();
             ps.close();
             rs.close();
+            
+            }
         } catch (Exception e) {
             System.out.println(e.getMessage()+ "\n");
             System.out.println("Conexion a la tabla fallida");

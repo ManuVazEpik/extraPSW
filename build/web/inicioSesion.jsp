@@ -38,7 +38,7 @@
             <div class="campo"><input type="text" name="correo" required="required" ></div>
             <br>
             Contraseña:
-            <div class="campo"><input type="password" name="passr" required="required" onkeypress="return validarPass(event)"></div>
+            <div class="campo"><input type="password" name="passr" required="required"></div>
             <br>
             <input type="submit" value="Registrar" class="boton">
             </div>

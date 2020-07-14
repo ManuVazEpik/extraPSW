@@ -7,16 +7,29 @@
 
 body{
 
-    background-color: white;
+    background-color: #FFDADA;
     padding: 0%;
 
 }
 
-img{
+.chico{
 
-    size: 500px;
-    height: 250px;
-    width: 250px;
+    width: 50px;
+    height: 50px;
+
+}
+
+.mediano{
+
+    width: 120px;
+    height: 120px;
+
+}
+
+.grande{
+
+    width: 220px;
+    height: 220px;
 
 }
 
@@ -35,6 +48,58 @@ img{
     padding: 10px;
     size: 70%;
     align-self: start;
-    background-color: salmon;
+    background: linear-gradient(#FFDADA,#FFD19B,#FFDADA);
 
 }
+.derecha{
+
+    float: right;
+    margin: 5px;
+
+}
+
+.izquierda{
+
+    float: left;
+    margin: 5px;
+
+}
+
+.tarjeta{
+
+    float:left;
+    background: rgb(199, 50, 50);
+    border:2px;
+    border-radius: 100%;
+    height: 50px;
+    width: 50px;
+    padding: 5em;
+    margin: 2em;
+    opacity: 70%;
+    text-align: left;
+    
+
+}
+
+h3{
+
+    align-items: center;
+
+}
+
+.tarjeta:hover{
+
+    opacity: 100%;
+    height: 100px;
+    width: 100px;
+    
+
+}
+
+.ampliar:hover{
+
+    width: 100px;
+    height: 100px;
+
+}
+

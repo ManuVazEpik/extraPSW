@@ -32,6 +32,10 @@
         <servlet-name>registrarMetodoPago</servlet-name>
         <servlet-class>registrarMetodoPago</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>agendarCita</servlet-name>
+        <servlet-class>agendarCita</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>verificarUsuario</servlet-name>
         <url-pattern>/verificarUsuario</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>registrarMetodoPago</servlet-name>
         <url-pattern>/registrarMetodoPago</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>agendarCita</servlet-name>
+        <url-pattern>/agendarCita</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

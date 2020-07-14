@@ -59,6 +59,12 @@ public class verificarUsuario extends HttpServlet {
                 sesionIni.setAttribute("permiso", u.getPermiso());
                 System.out.println((Integer)sesionIni.getAttribute("permiso"));
                 
+                if ((sesionIni.getAttribute("usuario")) == null || sesionIni.getAttribute("correo")==null || sesionIni.getAttribute("password") == null) {
+                    
+                    response.sendRedirect("error.jsp");
+                    
+                }
+                
                 System.out.println("Carga de datos concluida");
                 
                 System.out.println(u.getPermiso());
@@ -92,7 +98,11 @@ public class verificarUsuario extends HttpServlet {
                 }
                 
             
-        }
+        }else{
+            
+                response.sendRedirect("error.jsp");
+                
+            }
     }
     }
 

@@ -14,9 +14,8 @@ body{
 
 img{
 
-    size: 500px;
-    height: 250px;
-    width: 250px;
+    height: 50px;
+    width: 50px;
 
 }
 
@@ -35,6 +34,26 @@ img{
     padding: 10px;
     size: 70%;
     align-self: start;
-    background-color: salmon;
+    background: linear-gradient(#FFDADA,#FFD19B,#FFDADA);
+
+}
+
+.tarjeta{
+
+    float:left;
+    background: white;
+    border:2px;
+    border-radius: 15%;
+    height: 50px;
+    width: 50px;
+    padding: 2em;
+
+}
+
+.tarjeta:hover{
+
+    height: 70px;
+    width: 70px;
+    transition: ease-in-out;
 
 }

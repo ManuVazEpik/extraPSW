@@ -47,7 +47,7 @@ function validarCorreo(e){
     var teclado = (document.all)? e.keyCode : e.which;
     var tec = String.fromCharCode(teclado);
 
-    var regex = /^/ ;
+    var regex = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
 
 }
 
@@ -56,7 +56,7 @@ function validarPass(e){
     var teclado = (document.all)? e.keyCode : e.which;
     var tec = String.fromCharCode(teclado);
     
-    var regex = /^[A-Za-z\s][0-9\d]+$/;
+    var regex = /^(?=.*\d)(?=.*[a-záéíóúüñ]).*[A-ZÁÉÍÓÚÜÑ]/;
     
     return regex.test(tec);
     
