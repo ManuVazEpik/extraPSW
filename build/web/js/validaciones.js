@@ -61,3 +61,14 @@ function validarPass(e){
     return regex.test(tec);
     
 }
+
+function validaNumero(e){
+
+    var teclado = (document.all) ? e.keyCode : e.which;
+    var tec = String.fromCharCode(teclado);
+
+    var regex = /^[A-Za-z\s]+$/;
+
+    return !regex.test(tec);
+
+}

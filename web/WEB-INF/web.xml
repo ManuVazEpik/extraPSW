@@ -36,6 +36,14 @@
         <servlet-name>agendarCita</servlet-name>
         <servlet-class>agendarCita</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>registrarDireccion</servlet-name>
+        <servlet-class>registrarDireccion</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>validarCita</servlet-name>
+        <servlet-class>validarCita</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>verificarUsuario</servlet-name>
         <url-pattern>/verificarUsuario</url-pattern>
@@ -71,6 +79,14 @@
     <servlet-mapping>
         <servlet-name>agendarCita</servlet-name>
         <url-pattern>/agendarCita</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>registrarDireccion</servlet-name>
+        <url-pattern>/registrarDireccion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>validarCita</servlet-name>
+        <url-pattern>/validarCita</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -10,6 +10,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Estilista La Bella</title>
+        <link href="css/index.css" rel="stylesheet" type="text/css">
+        <link href="css/navegador.css" rel="stylesheet" type="text/css">
+        <script src="https://kit.fontawesome.com/9745ccff2a.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <% 

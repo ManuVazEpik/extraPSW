@@ -6,21 +6,20 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.*;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author manua
  */
-public class verCitas extends HttpServlet {
+public class registrarDireccion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,61 +31,42 @@ public class verCitas extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            Connection con = conexion.getConexion();
-            PreparedStatement ps = null;
-            ResultSet rs = null;
-            String sql = "select * from cita";
-            HttpSession sesionIni = request.getSession();
-            int user_id = (Integer)sesionIni.getAttribute("user_id");
             
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Ver Citas</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<table>"
-                    + "<tr>ID:</tr>"
-                    + "<tr>Hora de inicio:</tr>"
-                    + "<tr>Hora de finalizado:</tr>");
-                    
-                    try {
+            HttpSession sesionIni = request.getSession();
+            
+            String calle = request.getParameter("calle");
+            System.out.println(calle);
+            String colonia = request.getParameter("colonia");
+            System.out.println(colonia);
+            String alcaldia = request.getParameter("alcaldia");
+            System.out.println(alcaldia);
+            int numE = Integer.parseInt(request.getParameter("numeroE"));
+            System.out.println(numE);
+            int numI = Integer.parseInt(request.getParameter("numeroI"));
+            System.out.println(numI);
+            int cp = Integer.parseInt(request.getParameter("cp"));
+            System.out.println(cp);
+            //int user_id = (Integer) sesionIni.getAttribute("user_id");
+            //System.out.println(user_id);
+            
+            direccion dir = new direccion();
+            boolean check = dir.registrarDireccion(calle, colonia, alcaldia, numE, numI, cp, 81);
+            
+            if (check) {
                 
-                        ps = con.prepareStatement(sql);
-                        rs = ps.executeQuery();
-                        
-                        while(rs.next()){
-                        
-                            out.println("<td>"
-                                    + "<tr>"
-                                    + rs.getDate("cita_fecha")
-                                    + "</tr>"
-                                    + "</td>");
-                        
-                            out.println("<td>"
-                                    + "<tr>"
-                                    + rs.getTime("cita_hora")
-                                    + "</tr>"
-                                    + "</td>");
-                            
-                            out.println("<td>"
-                                    + "<tr>"
-                                    + rs.getTime("cita_horaF")
-                                    + "</tr>"
-                                    + "</td>");
-                            
-                        }
-                        
-            } catch (Exception e) {
+                response.sendRedirect("inicioSesion.jsp");
+                
+            }
+            else{
+            
+                response.sendRedirect("error.jsp");
+            
             }
             
-            out.println("</table>");
-            out.println("</body>");
-            out.println("</html>");
         }
     }
 
@@ -103,9 +83,13 @@ public class verCitas extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            processRequest(request, response);
+            try {
+                processRequest(request, response);
+            } catch (SQLException ex) {
+                Logger.getLogger(registrarDireccion.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(verCitas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(registrarDireccion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -121,9 +105,13 @@ public class verCitas extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            processRequest(request, response);
+            try {
+                processRequest(request, response);
+            } catch (SQLException ex) {
+                Logger.getLogger(registrarDireccion.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(verCitas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(registrarDireccion.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

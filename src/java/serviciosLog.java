@@ -6,7 +6,6 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.PreparedStatement;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,13 +13,12 @@ import javax.servlet.http.HttpServletResponse;
 import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author manua
  */
-public class verCitas extends HttpServlet {
+public class serviciosLog extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,58 +30,43 @@ public class verCitas extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException {
+            throws ServletException, IOException, ClassNotFoundException, SQLException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             Connection con = conexion.getConexion();
+            String sql = "select * from servicios";
             PreparedStatement ps = null;
             ResultSet rs = null;
-            String sql = "select * from cita";
-            HttpSession sesionIni = request.getSession();
-            int user_id = (Integer)sesionIni.getAttribute("user_id");
             
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Ver Citas</title>");            
+            out.println("<title>Ver Servicios</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<table>"
+            out.println("<table border='1'>");
+            out.println("<tr><th>Servicios</th></tr>"
                     + "<tr>ID:</tr>"
-                    + "<tr>Hora de inicio:</tr>"
-                    + "<tr>Hora de finalizado:</tr>");
-                    
-                    try {
+                    + "<tr>Nombre del servicio:</tr>"
+                    + "<tr>Duracion:</tr>"
+                    + "<tr>Costo:</tr>");
+            ps = con.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+            
+                out.println("<tr>");
+                out.println("<td>" + rs.getInt("id_ser") +"</td>");
+                out.println("<td>" + rs.getString("servicio") +"</td>");
+                out.println("<td>" + rs.getTime("duracion") +"</td>");
+                out.println("<td>" + rs.getDouble("costo") +"</td>");
                 
-                        ps = con.prepareStatement(sql);
-                        rs = ps.executeQuery();
-                        
-                        while(rs.next()){
-                        
-                            out.println("<td>"
-                                    + "<tr>"
-                                    + rs.getDate("cita_fecha")
-                                    + "</tr>"
-                                    + "</td>");
-                        
-                            out.println("<td>"
-                                    + "<tr>"
-                                    + rs.getTime("cita_hora")
-                                    + "</tr>"
-                                    + "</td>");
-                            
-                            out.println("<td>"
-                                    + "<tr>"
-                                    + rs.getTime("cita_horaF")
-                                    + "</tr>"
-                                    + "</td>");
-                            
-                        }
-                        
-            } catch (Exception e) {
+                out.println("</tr>");
+            
             }
             
+            out.println("<a href='index.jsp'><input type='button' value='Volver'></a>");
             out.println("</table>");
             out.println("</body>");
             out.println("</html>");
@@ -103,9 +86,13 @@ public class verCitas extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            processRequest(request, response);
+            try {
+                processRequest(request, response);
+            } catch (SQLException ex) {
+                Logger.getLogger(servicios.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(verCitas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(servicios.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -121,9 +108,13 @@ public class verCitas extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            processRequest(request, response);
+            try {
+                processRequest(request, response);
+            } catch (SQLException ex) {
+                Logger.getLogger(servicios.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } catch (ClassNotFoundException ex) {
-            Logger.getLogger(verCitas.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(servicios.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

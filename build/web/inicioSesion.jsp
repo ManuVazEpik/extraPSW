@@ -19,10 +19,10 @@
                 <h1>Si ya tienes una cuenta registrada, inicia sesion.</h1>
                 <br>
                 Usuario:
-                <div class="campo"><input type="text" name="usuario" required="required" onkeypress="return validarPalabras(event)"></div>
+                <div class="campo"><input type="text" name="usuario" required="required" onkeypress="return validarPalabras(event)" ondrop="return false"></div>
                 <br>
                 Contraseña:
-                <div class="campo"><input type="password" name="pass" required="required"></div>
+                <div class="campo"><input type="password" name="pass" required="required" ondrop="return false"></div>
                 <br>
                 <input type="submit" value="Iniciar Sesion" class="boton">
             </div>
@@ -32,13 +32,13 @@
                 <h1>Si aun no tienes una cuenta registrada, crea una en este momento.</h1>
             <br>
             Usuario:
-            <div class="campo"><input type="text" name="usuarior" required="required" onkeypress="return validarPalabras(event)"></div>
+            <div class="campo"><input type="text" name="usuarior" required="required" onkeypress="return validarPalabras(event)" ondrop="return false"></div>
             <br>
             Correo Electronico:
-            <div class="campo"><input type="text" name="correo" required="required" ></div>
+            <div class="campo"><input type="text" name="correo" required="required" ondrop="return false"></div>
             <br>
             Contraseña:
-            <div class="campo"><input type="password" name="passr" required="required"></div>
+            <div class="campo"><input type="password" name="passr" required="required" ondrop="return false"></div>
             <br>
             <input type="submit" value="Registrar" class="boton">
             </div>

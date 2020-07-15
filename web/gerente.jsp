@@ -11,6 +11,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Gerente La Bella</title>
+        <link href="css/index.css" rel="stylesheet" type="text/css">
+        <link href="css/navegador.css" rel="stylesheet" type="text/css">
+        <script src="https://kit.fontawesome.com/9745ccff2a.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <% 
@@ -31,20 +34,18 @@
                 usuario = (String)sesionIni.getAttribute("usuario");}
             
         %>
+        <header>
+        <input type="checkbox" id="btn-menu">
+        <label for="btn-menu"><i class="fas fa-bars"></i></label>
         <nav class="navegador">
-            <ul>
-                <li>Inicio</li>
-                <li><a href="servicios">Servicios</a></li>
-                <li>Gerente
-                    <ul>
-                        <li><a href="verEmpleados">Ver trabajadores</a></li>
-                        <li>Cuenta</li>
-                        <li>Pagos</li>
-                    </ul>
-                </li>
-                <li><a href="cerrarSesion">Cerrar sesion</a></li>
-            </ul>
+        <ul>
+            <li><a href="gerente.jsp"><i class="fas fa-home"></i>Inicio</a></li>
+            <li><a href="servicios"><i class="fas fa-concierge-bell"></i>Servicios</a></li>
+            <li><a href="verCitas"><i class="far fa-calendar-alt"></i>Ver Citas</a></li>
+            <li><a href="cerrarSesion"><i class="fas fa-sign-out-alt"></i>Cerrar Sesion</a></li>
+        </ul>
         </nav>
+        </header>
         <div class="presentacion"><h2>Bienvenido <%=usuario%>.</h2></div>
         <section class="princial">
             <div class="contenedor">

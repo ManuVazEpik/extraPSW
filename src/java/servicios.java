@@ -67,7 +67,6 @@ public class servicios extends HttpServlet {
             }
             
             out.println("</table>");
-            out.println("<input type='button' value='prueba' onclick='prueba.jsp'>");
             out.println("</body>");
             out.println("</html>");
         }

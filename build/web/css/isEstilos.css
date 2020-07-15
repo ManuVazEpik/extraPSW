@@ -5,20 +5,21 @@
 
 }
 
-.derecha{
+body{
 
-    align-self: initial;
-    box-align: right;
-    float: right;
-    align-items: center;
+    background: #FFDADA;
 
 }
 
-.izquierda{
+form{
 
-    align-self: start;
-    box-align: left;
-    float: left;
-    align-items: center;
+    float:left;
+
+}
+div{
+
+    padding: 5px;
+    border:10px;
+    background: #FFD19B;
 
 }

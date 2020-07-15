@@ -12,6 +12,13 @@ body{
 
 }
 
+section{
+
+    padding: 1px;
+    border: 5px;
+
+}
+
 .chico{
 
     width: 50px;

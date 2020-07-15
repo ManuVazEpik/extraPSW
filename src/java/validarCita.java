@@ -6,9 +6,6 @@
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -18,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author manua
  */
-public class registrarUsuario extends HttpServlet {
+public class validarCita extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,34 +27,16 @@ public class registrarUsuario extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, ClassNotFoundException, SQLException {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             
-            String nombre = request.getParameter("usuarior");
-            System.out.println(nombre);
-            String pass = request.getParameter("passr");
-            System.out.println(pass);
-            String correo = request.getParameter("correo");
-            System.out.println(correo);
-            
-            conexion con = new conexion();
-            
-            boolean check = con.registrarUsuario(nombre, correo, pass);
-            System.out.println("Datos cargados a la funcion");
-            
-            if (check) {
-                
-                
-                response.sendRedirect("datos.jsp");
-                
-            }
-            else{
-            
-                response.sendRedirect("error.jsp");
-                
-            }
+            String servicio1 = request.getParameter("ser1");
+            String servicio2 = request.getParameter("ser2");
+            String servicio3 = request.getParameter("ser3");
+            String dia = request.getParameter("dia");
+            String fecha = request.getParameter("hora");
             
         }
     }
@@ -74,13 +53,7 @@ public class registrarUsuario extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(registrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(registrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**
@@ -94,13 +67,7 @@ public class registrarUsuario extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(registrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
-            Logger.getLogger(registrarUsuario.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /**

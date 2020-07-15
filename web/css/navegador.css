@@ -8,3 +8,102 @@ and open the template in the editor.
     Author     : manua
 */
 
+nav{
+
+    width: 100%;
+    background: red;
+
+}
+
+#btn-menu{
+
+    display: none;
+
+}
+
+header label{
+
+    display: none;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+
+}
+
+nav label:hover{
+
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+
+}
+
+.navegador ul{
+
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+
+}
+
+.navegador li{
+
+    border-right: 1px solid #fff;
+    text-align: center;
+    flex-grow: 1;
+
+}
+
+.navegador li:hover{
+
+    background: rgba(0, 0,0 ,3);
+
+}
+
+.navegador li a{
+
+    display: block;
+    padding: 15px 20px;
+    color: white;
+    text-decoration: none;
+
+}
+
+@media(max-width:768px){
+
+    header label{
+
+        display: block;
+
+    }
+
+    .navegador{
+
+        position: absolute;
+        background: #FFDADA;
+        width: 70%;
+        margin-left: -80%;
+        transition: all 0.5s;
+
+    }
+
+    .navegador ul{
+
+        flex-direction: column;
+
+
+    }
+
+    .navegador li{
+
+        border-top:  1px solid #fff;
+
+    }
+
+    #btn-menu:checked ~ .navegador{
+
+        margin: 0;
+
+    }
+
+}

@@ -51,6 +51,7 @@ public class verificarUsuario extends HttpServlet {
                 
                 HttpSession sesionIni = request.getSession();
                 sesionIni.setAttribute("usuario", usuario);
+                sesionIni.setAttribute("user_id", u.getId());
                 System.out.println((String)sesionIni.getAttribute("usuario"));
                 sesionIni.setAttribute("correo", u.getCorreo());
                 System.out.println((String)sesionIni.getAttribute("correo"));
